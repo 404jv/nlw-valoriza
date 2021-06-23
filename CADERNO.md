@@ -50,3 +50,16 @@ Existem algumas formas de se utilizar um banco de dados na aplicação, a primei
 Outra forma de se utilizar é com os Queries Builders, esses já nos ajudam a misturar JavaScript com SQL, um exemplo é o Knex, o lado bom de ser utilizar o Knex é que ele tem um escopo de bancos muito grande e mesmo com várias funções JS para SQL ainda continua muito próximo do SQL e por mais "mão na roda" que é o Knex, ainda tem abstrações que em alguns casos vai se sair melhor do que o Knex. <br/>
 
 E por fim os ORM's, são eles frameworks para fazer um abstração maior, então Sequelize, TypeORM, Prisma e entre outros... Vão ajudar a usar funções JS para representar os códigos SQL, classes para tabelas em SQL e objetos para entidades. Então o ORM é um "tradutor".
+
+## Migrations
+As migrations são resonsáveis por gerenciar as tabelas, então cada migration representa uma tabela e essa migration vai criar ou deletar a tabla no banco de dados.
+
+## Services vs Controllers
+Os services são responsáveis por toda a regra de negocio, então se um usuário pode ser cadastrado com o mesmo email que outro, se uma informação está correta ou não e etc... Já os controllers ficam esperando os services aprovarem a request e com a aprovação eles continuam a fazer a determinada tarefa, por exemplo cadastrar ou deletar um usuário no banco.
+
+## middlewares
+Eles ficam no "meio" de uma request e reponse, são funções/metódos com uma tarefa bem especifica, pode ser tanto para tratar errors, como para permitir o uso do Json, que nem nesse caso:
+
+```ts
+app.use(express.json());
+```
