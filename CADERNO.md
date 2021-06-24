@@ -1,3 +1,11 @@
+## Pesquisar
+[ ] - Eu posso passar uma string contendo nome do tipo do objeto ou só pode fuma função anônima fazer isso:
+```ts
+@JoinColumn({ name: 'user_sender '})
+@ManyToOne(() => User) // Posso passar "User" ao invés de "() => User"
+userSender: User;
+```
+
 ## Tipos de request
 
 GET    => Buscar/Listar informações
