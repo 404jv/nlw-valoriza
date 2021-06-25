@@ -1,8 +1,15 @@
+## Milhas extra
+- [x] Classe para erros customizável
+- [ ] Enviar email para o usuário que recebeu um elogio
+- [ ] Colocar em produção
+- [ ] Aplicar uma arquitetura
+- [ ] Criar o frontend
+
 ## Pesquisar
 [ ] - Eu posso passar uma string contendo nome do tipo do objeto ou só pode fuma função anônima fazer isso:
 ```ts
 @JoinColumn({ name: 'user_sender '})
-@ManyToOne(() => User) // Posso passar "User" ao invés de "() => User"
+@ManyToOne(() => User) // Posso passar "'User'" ao invés de "() => User"
 userSender: User;
 ```
 
