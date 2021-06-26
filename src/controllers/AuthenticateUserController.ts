@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { AppError } from "../errors/AppError";
+import { HttpError } from "../errors/HttpError";
 import { AthenticateUserService } from "../services/AthenticateUserService";
 
 const UNPROCESSABLE_ENTITY = 422;
@@ -10,11 +10,18 @@ class AuthenticateUserController {
     const { email, password } = request.body;
 
     if (!email) {
-      throw new AppError('Email incorrect', UNPROCESSABLE_ENTITY);
+      throw new HttpError({
+        message: 'Email incorrect', 
+        statusCode: 
+        UNPROCESSABLE_ENTITY
+      });
     }
 
     if (!password) {
-      throw new AppError('Password incorrect', UNPROCESSABLE_ENTITY);
+      throw new HttpError({
+        message: 'Password incorrect', 
+        statusCode: UNPROCESSABLE_ENTITY
+      });
     }
 
     const authenticateUserService = new AthenticateUserService();

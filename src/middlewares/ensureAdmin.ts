@@ -1,8 +1,9 @@
 import { NextFunction, Request, Response } from "express";
 import { getCustomRepository } from "typeorm";
-import { AppError } from "../errors/AppError";
+import { HttpError } from "../errors/HttpError";
 import { UserRepositories } from "../repositories/UserRepositories";
 
+const UNAUTHORIZED = 401;
 
 export async function ensureAdmin(request: Request, response: Response, next: NextFunction) {
   const { user_id } = request;
@@ -15,5 +16,8 @@ export async function ensureAdmin(request: Request, response: Response, next: Ne
     return next();
   }
   
-  throw new AppError('Unauthorized', 401);
+  throw new HttpError({
+    message: '', 
+    statusCode: UNAUTHORIZED
+  });
 }

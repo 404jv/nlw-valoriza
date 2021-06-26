@@ -1,5 +1,5 @@
 import { getCustomRepository } from "typeorm";
-import { AppError } from "../errors/AppError";
+import { HttpError } from "../errors/HttpError";
 import { TagRepositories } from "../repositories/TagRepositories";
 
 const UNPROCESSABLE_ENTITY = 422;
@@ -11,7 +11,10 @@ class CreateTagService {
     const tagRepositories = getCustomRepository(TagRepositories);
 
     if (!name) {
-      throw new AppError('Incorrect name!', UNPROCESSABLE_ENTITY);
+      throw new HttpError({
+        message: 'Incorrect name!',
+        statusCode: UNPROCESSABLE_ENTITY
+      });
     }
 
     const tagAlreayExists = await tagRepositories.findOne({
@@ -19,7 +22,10 @@ class CreateTagService {
     });
   
     if (tagAlreayExists) {
-      throw new AppError('Tag already exists!', CONFLICT);
+      throw new HttpError({
+        message: 'Tag already exists!',
+        statusCode: CONFLICT
+      });
     }
 
     const tag = tagRepositories.create({ name });

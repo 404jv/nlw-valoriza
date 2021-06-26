@@ -3,7 +3,7 @@ import express, { NextFunction, Request, Response } from 'express';
 import "express-async-errors";
 import './database';
 import { router } from "./routes";
-import { AppError } from "./errors/AppError";
+import { HttpError } from "./errors/HttpError";
 import cors from 'cors';
 
 const app = express();
@@ -15,7 +15,7 @@ app.use(cors);
 app.use((error: Error, request: Request, response: Response, next: NextFunction) => {
   console.log(error);
   
-  if (error instanceof AppError) {
+  if (error instanceof HttpError) {
     if (!error.message) {
       return response.status(error.statusCode).end();
     }

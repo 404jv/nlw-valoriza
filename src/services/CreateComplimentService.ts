@@ -1,5 +1,5 @@
 import { getCustomRepository } from "typeorm";
-import { AppError } from "../errors/AppError";
+import { HttpError } from "../errors/HttpError";
 import { ComplimentsRepositories } from "../repositories/ComplimentsRepositories";
 import { UserRepositories } from "../repositories/UserRepositories";
 
@@ -21,13 +21,19 @@ class CreateComplimentService {
     const usersRepositositories = getCustomRepository(UserRepositories);
 
     if (user_sender === user_receiver) {
-      throw new AppError('Error Users senders cannot sendo to themselves!', UNPROCESSABLE_ENTITY);
+      throw new HttpError({
+        message: 'Error Users senders cannot sendo to themselves!',
+        statusCode: UNPROCESSABLE_ENTITY
+      });
     }
     
     const userReceiverExists = await usersRepositositories.findOne(user_receiver);
     
     if (!userReceiverExists) {
-      throw new AppError('User Receiver does not exists!', NOT_FOUND);
+      throw new HttpError({
+        message: 'User Receiver does not exists!', 
+        statusCode: NOT_FOUND
+      });
     }
     
     

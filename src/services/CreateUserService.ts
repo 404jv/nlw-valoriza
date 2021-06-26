@@ -1,5 +1,5 @@
 import { getCustomRepository } from 'typeorm';
-import { AppError } from '../errors/AppError';
+import { HttpError } from '../errors/HttpError';
 import { UserRepositories } from "../repositories/UserRepositories";
 import { hash } from 'bcryptjs';
 
@@ -18,7 +18,10 @@ class CreateUserService {
     const userRepository = getCustomRepository(UserRepositories);
 
     if (!email) {
-      throw new AppError('Email incorrect', UNPROCESSABLE_ENTITY);
+      throw new HttpError({
+        message: 'Email incorrect', 
+        statusCode: UNPROCESSABLE_ENTITY
+      });
     }
 
     const userAlreayExists = await userRepository.findOne({
@@ -26,7 +29,10 @@ class CreateUserService {
     });
 
     if (userAlreayExists) {
-      throw new AppError('User alreay exists', CONFLICT);
+      throw new HttpError({
+        message: 'User alreay exists', 
+        statusCode: CONFLICT
+      });
     }
 
     const passwordHash = await hash(password, 8);

@@ -1,6 +1,7 @@
 ## Milhas extra
 - [x] Classe para erros customizável
 - [ ] Enviar email para o usuário que recebeu um elogio
+- [ ] Adicionar middleware para verificação dos dados
 - [ ] Colocar em produção
 - [ ] Aplicar uma arquitetura
 - [ ] Criar o frontend

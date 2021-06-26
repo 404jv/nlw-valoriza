@@ -1,7 +1,7 @@
 import { compare } from "bcryptjs";
 import { sign } from "jsonwebtoken";
 import { getCustomRepository } from "typeorm";
-import { AppError } from "../errors/AppError";
+import { HttpError } from "../errors/HttpError";
 import { UserRepositories } from "../repositories/UserRepositories";
 
 interface IAthenticateUserService {
@@ -21,7 +21,10 @@ class AthenticateUserService {
     const passwordMatch = await compare(password, user.password);
 
     if (!user || !passwordMatch) {
-      throw new AppError('Email/password incorrect!');
+      throw new HttpError({
+        message: 'Email/password incorrect!',
+        statusCode: 401
+      });
     }
 
     const token = sign({

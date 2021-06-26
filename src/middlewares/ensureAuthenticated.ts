@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import { verify } from "jsonwebtoken";
-import { AppError } from "../errors/AppError";
+import { HttpError } from "../errors/HttpError";
 
 interface IPayLoad {
   sub: string;
@@ -17,7 +17,10 @@ export function ensureAuthenticated(
   const bearerToken = request.headers.authorization
 
   if (!bearerToken) {
-    throw new AppError('', UNAUTHORIZED);
+    throw new HttpError({
+      message: '', 
+      statusCode: UNAUTHORIZED
+    });
   }
 
   const [, token] = bearerToken.split(' ');
@@ -29,6 +32,9 @@ export function ensureAuthenticated(
 
     return next();
   } catch (error) {
-    throw new AppError('', UNAUTHORIZED);
+    throw new HttpError({
+      message: '', 
+      statusCode: UNAUTHORIZED
+    });
   }
 }

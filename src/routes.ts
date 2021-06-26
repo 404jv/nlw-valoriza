@@ -21,7 +21,7 @@ const listUserSendComplimentsController = new ListUserSendComplimentsController(
 const listTagsController = new ListTagsController();
 const listUsersController = new ListUsersController();
 
-router.post('/users', ensureAuthenticated, createUserController.handle);
+router.post('/users', createUserController.handle);
 
 router.get('/users', listUsersController.handle);
 
