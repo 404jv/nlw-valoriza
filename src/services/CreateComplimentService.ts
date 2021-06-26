@@ -1,11 +1,8 @@
 import { getCustomRepository } from "typeorm";
 import { HttpError } from "../errors/HttpError";
+import { NOT_FOUND, UNPROCESSABLE_ENTITY } from "../helpers/httpHelpers";
 import { ComplimentsRepositories } from "../repositories/ComplimentsRepositories";
 import { UserRepositories } from "../repositories/UserRepositories";
-
-
-const UNPROCESSABLE_ENTITY = 422;
-const NOT_FOUND = 404;
 
 interface IComplimentRequest {
   tag_id: string;

@@ -2,6 +2,7 @@ import { compare } from "bcryptjs";
 import { sign } from "jsonwebtoken";
 import { getCustomRepository } from "typeorm";
 import { HttpError } from "../errors/HttpError";
+import { UNAUTHORIZED } from "../helpers/httpHelpers";
 import { UserRepositories } from "../repositories/UserRepositories";
 
 interface IAthenticateUserService {
@@ -23,7 +24,7 @@ class AthenticateUserService {
     if (!user || !passwordMatch) {
       throw new HttpError({
         message: 'Email/password incorrect!',
-        statusCode: 401
+        statusCode: UNAUTHORIZED
       });
     }
 

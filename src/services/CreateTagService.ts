@@ -1,9 +1,7 @@
 import { getCustomRepository } from "typeorm";
 import { HttpError } from "../errors/HttpError";
+import { CONFLICT, UNPROCESSABLE_ENTITY } from "../helpers/httpHelpers";
 import { TagRepositories } from "../repositories/TagRepositories";
-
-const UNPROCESSABLE_ENTITY = 422;
-const CONFLICT = 409;
 
 class CreateTagService {
 

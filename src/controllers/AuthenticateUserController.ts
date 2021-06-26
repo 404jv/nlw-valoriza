@@ -1,8 +1,7 @@
 import { Request, Response } from "express";
 import { HttpError } from "../errors/HttpError";
+import { UNPROCESSABLE_ENTITY } from "../helpers/httpHelpers";
 import { AthenticateUserService } from "../services/AthenticateUserService";
-
-const UNPROCESSABLE_ENTITY = 422;
 
 class AuthenticateUserController {
 
@@ -12,8 +11,7 @@ class AuthenticateUserController {
     if (!email) {
       throw new HttpError({
         message: 'Email incorrect', 
-        statusCode: 
-        UNPROCESSABLE_ENTITY
+        statusCode: UNPROCESSABLE_ENTITY
       });
     }
 

@@ -1,12 +1,11 @@
 import { NextFunction, Request, Response } from "express";
 import { verify } from "jsonwebtoken";
 import { HttpError } from "../errors/HttpError";
+import { UNAUTHORIZED } from "../helpers/httpHelpers";
 
 interface IPayLoad {
   sub: string;
 }
-
-const UNAUTHORIZED = 401;
 
 export function ensureAuthenticated(
   request: Request, 

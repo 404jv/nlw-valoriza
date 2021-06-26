@@ -2,6 +2,7 @@ import { getCustomRepository } from 'typeorm';
 import { HttpError } from '../errors/HttpError';
 import { UserRepositories } from "../repositories/UserRepositories";
 import { hash } from 'bcryptjs';
+import { CONFLICT, UNPROCESSABLE_ENTITY } from '../helpers/httpHelpers';
 
 interface IUserRequest {
   name: string;
@@ -9,9 +10,6 @@ interface IUserRequest {
   admin?: boolean;
   password: string;
 }
-
-const UNPROCESSABLE_ENTITY = 422;
-const CONFLICT = 409;
 
 class CreateUserService {
   async execute({ name, email, admin = false, password }: IUserRequest) {

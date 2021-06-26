@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { CREATED } from "../helpers/httpHelpers";
 import { CreateUserService } from "../services/CreateUserService";
 
 
@@ -10,7 +11,7 @@ class CreateUserController {
 
     const user = await createUserService.execute({ name, email, admin, password });
 
-    return response.json(user).status(201);
+    return response.json(user).status(CREATED);
   }
 }
 

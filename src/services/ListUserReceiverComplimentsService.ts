@@ -11,7 +11,7 @@ class ListUserReceiverComplimentsService {
         user_receiver: user_id
       },
       relations: ['userSender', 'userReceiver', 'tag']
-    }).catch(err => console.log(err));
+    });
     
     return compliments;
   }
