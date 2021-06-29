@@ -7,7 +7,7 @@
 - [ ] Criar o frontend
 
 ## Pesquisar
-[ ] - Eu posso passar uma string contendo nome do tipo do objeto ou só pode fuma função anônima fazer isso:
+[x] - Eu posso passar uma string contendo nome do tipo do objeto ou só pode fuma função anônima fazer isso: (Não pode)
 ```ts
 @JoinColumn({ name: 'user_sender' })
 @ManyToOne(() => User) // Posso passar "'User'" ao invés de "() => User"
@@ -71,7 +71,7 @@ E por fim os ORM's, são eles frameworks para fazer um abstração maior, então
 As migrations são resonsáveis por gerenciar as tabelas, então cada migration representa uma tabela e essa migration vai criar ou deletar a tabla no banco de dados.
 
 ## Services vs Controllers
-Os services são responsáveis por toda a regra de negocio, então se um usuário pode ser cadastrado com o mesmo email que outro, se uma informação está correta ou não e etc... Já os controllers ficam esperando os services aprovarem a request e com a aprovação eles continuam a fazer a determinada tarefa, por exemplo cadastrar ou deletar um usuário no banco.
+Os controllers são responsáveis por fazer algums verificações nos dados, então seu o usuário fez uma request sem um campo obrigatório, se os tipos dos campos estão corretos. Depois dessa verficação os controllers chamam os services que são responsáveis pela regra de negócio e são os services que se comunicam com as camadas mais baixas, tipo o banco de dados.
 
 ## middlewares
 Eles ficam no "meio" de uma request e reponse, são funções/metódos com uma tarefa bem especifica, pode ser tanto para tratar errors, como para permitir o uso do Json, que nem nesse caso:
