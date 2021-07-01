@@ -27,9 +27,6 @@ Durante o NLW foi proposto desafios para serem feitos sozinho, aqui estão algun
 ## ✍ Anotações
 No arquivo [CADERNO.md](CADERNO.md), estão escritos os principais aprendizados que eu tive durante o NLW.
 
-## 🔶 Diagrama
-<img src="./public/diagrama.png" alt="NLW Together" />
-
 ## 🔧 Tecnologias
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
