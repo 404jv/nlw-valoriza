@@ -19,8 +19,10 @@ Valoriza é uma plataforma para promover o reconhecimento entre companheiros de 
 ## ⭐ Milhas extra
 Durante o NLW foi proposto desafios para serem feitos sozinho, aqui estão alguns dos que eu fiz:
 
-- Classe para erros customizável
-- Enviar email para o usuário que recebeu um elogio
+- Classe para erros customizável.
+- Enviar email para o usuário que recebeu um elogio.
+- Diagrama de entidades.
+- Uso de constantes para status HTTP. São exportadas nesse [arquivo](./src/helpers/httpHelpers.ts).
 
 ## ✍ Anotações
 No arquivo [CADERNO.md](CADERNO.md), estão escritos os principais aprendizados que eu tive durante o NLW.
