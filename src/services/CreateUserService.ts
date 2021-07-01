@@ -15,13 +15,6 @@ class CreateUserService {
   async execute({ name, email, admin = false, password }: IUserRequest) {
     const userRepository = getCustomRepository(UserRepositories);
 
-    if (!email) {
-      throw new HttpError({
-        message: 'Email incorrect', 
-        statusCode: UNPROCESSABLE_ENTITY
-      });
-    }
-
     const userAlreayExists = await userRepository.findOne({
       email,
     });
