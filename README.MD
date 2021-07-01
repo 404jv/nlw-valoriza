@@ -6,6 +6,13 @@
   <img src="https://img.shields.io/static/v1?label=NLW&message=Together&color=8257E5&labelColor=000000" alt="NLW Together" />
 </p>
 
+## 🔶 Diagrama
+
+<img 
+  src="./public/diagrama.png"
+  alt="diagrama"
+/>
+
 ## 📃 Sobre
 Valoriza é uma plataforma para promover o reconhecimento entre companheiros de equipe.
 
